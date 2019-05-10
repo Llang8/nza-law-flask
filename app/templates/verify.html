@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<h1>Verify</h1>
+
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+
+    <p>
+        {{form.phoneNumber.label}}<br>
+        {{form.phoneNumber(size=32)}}<br>
+        {%for error in form.phoneNumber.errors%}
+            <span>[{{error}}]</span>
+        {%endfor%}
+    </p>
+
+    <p>
+        {{form.code.label}}<br>
+        {{form.code(size=32)}}<br>
+        {%for error in form.code.errors%}
+            <span>[{{error}}]</span>
+        {%endfor%}
+    </p>
+    {{form.submit()}}
+</form>
+
+{%endblock%}
